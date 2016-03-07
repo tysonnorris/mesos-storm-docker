@@ -17,6 +17,13 @@ The Mesosphere site has a tutorial which goes into more [details](http://mesosph
 OpenJDK 1.7 might work too, but that has not been tested.
 The code was compiled with Oracle JDK 1.7 and will not work on Java 1.6.
 
+#Building, Packaging & Pushing Using Oracle JDK8 (For Phoenix)
+```shell
+bin/build-release.sh
+docker build --rm -f Dockerfile.oraclejdk8 -t releng-docker-registry.dev.ut1.omniture.com/social/storm-mesos:<tag> .
+docker push releng-docker-registry.dev.ut1.omniture.com/social/storm-mesos:<tag>
+```
+
 # Building
 
 Run build-release.sh to download storm distribution and bundle Storm with this framework into one tar release.
