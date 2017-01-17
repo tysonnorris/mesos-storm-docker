@@ -656,7 +656,7 @@ public class MesosNimbus implements INimbus {
     Map conf = Utils.readCommandLineOpts();
     for (Object key : conf.keySet()){
       options.add("-c");
-      options.add(key + "=" + conf.get(key).toString());
+      options.add(key + "=" + (conf.get(key) instanceof String ? "\"" + conf.get(key).toString() + "\"" : conf.get(key).toString()));
     }
     LOG.info("Including storm.options:"+options);
     return options;
